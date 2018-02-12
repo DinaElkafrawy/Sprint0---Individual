@@ -1,0 +1,700 @@
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~
+$ git config --global user.name "DinaElkafrawy"
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~
+$ git config --global user.email dina.elkafrawy@student.guc.edu.eg
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~
+$ git config --global color.ui true
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~
+$ mkdir sprint0
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~
+$ cd sprint0
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0
+$ git init
+Initialized empty Git repository in C:/Users/Dina Hisham/sprint0/.git/
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        File1.txt
+        File2.txt
+        File3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git commit -m "Before staging files"
+On branch master
+
+Initial commit
+
+Untracked files:
+        File1.txt
+        File2.txt
+        File3.txt
+
+nothing added to commit but untracked files present
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git add "File1"
+fatal: pathspec 'File1' did not match any files
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git add "File1.txt"
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git add "File2.txt"
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git add "File3.txt"
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   File1.txt
+        new file:   File2.txt
+        new file:   File3.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
+
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git commit -m "Added the three files to my local repository"
+[master (root-commit) 737891d] Added the three files to my local repository
+ 3 files changed, 105 insertions(+)
+ create mode 100644 File1.txt
+ create mode 100644 File2.txt
+ create mode 100644 File3.txt
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git rm "File2.txt"
+rm 'File2.txt'
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    File2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
+
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git commit -m "Deleted File2"
+[master 47b9a13] Deleted File2
+ 1 file changed, 10 deletions(-)
+ delete mode 100644 File2.txt
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git reser --hard
+git: 'reser' is not a git command. See 'git --help'.
+
+The most similar command is
+        reset
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git reset --hard
+HEAD is now at 47b9a13 Deleted File2
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git checkout -- File2.txt
+error: pathspec 'File2.txt' did not match any file(s) known to git.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git checkout -- File2
+error: pathspec 'File2' did not match any file(s) known to git.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git checkout --File2
+error: unknown option `File2'
+usage: git checkout [<options>] <branch>
+   or: git checkout [<options>] [<branch>] -- <file>...
+
+    -q, --quiet           suppress progress reporting
+    -b <branch>           create and checkout a new branch
+    -B <branch>           create/reset and checkout a branch
+    -l                    create reflog for new branch
+    --detach              detach HEAD at named commit
+    -t, --track           set upstream info for new branch
+    --orphan <new-branch>
+                          new unparented branch
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -f, --force           force checkout (throw away local modifications)
+    -m, --merge           perform a 3-way merge with the new branch
+    --overwrite-ignore    update ignored files (default)
+    --conflict <style>    conflict style (merge or diff3)
+    -p, --patch           select hunks interactively
+    --ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --ignore-other-worktrees
+                          do not check if another worktree is holding the given ref
+    --recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --progress            force progress reporting
+
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git checkout -- <File2>
+bash: syntax error near unexpected token `newline'
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git checkout -- File2.txt
+error: pathspec 'File2.txt' did not match any file(s) known to git.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git checkout HEAD^C
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git log
+commit 47b9a135a5e6ef7d71dba6ab59ca2abe3731a231 (HEAD -> master)
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 22:33:12 2018 +0200
+
+    Deleted File2
+
+commit 737891db639fe42b6660b18403eaaf327f5ab51a
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 22:30:40 2018 +0200
+
+    Added the three files to my local repository
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ ^C
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ ^C
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ ^C
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git revert 47b9a135a5e6ef7d71dba6ab59ca2abe3731a231
+[master a281898] Revert "Deleted File2"
+ 1 file changed, 10 insertions(+)
+ create mode 100644 File2.txt
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+                                                                                             r
+> na Hcommit -m "After adding the three files to my staging area, I deleted File 2 using git r
+>
+> :x
+> 4
+> $
+> git init
+> Close
+> git log
+> ^C
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git Is-tree --full-tree -r HEAD
+git: 'Is-tree' is not a git command. See 'git --help'.
+
+The most similar command is
+        ls-tree
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git Is-files
+git: 'Is-files' is not a git command. See 'git --help'.
+
+The most similar command is
+        ls-files
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git 1s-files
+git: '1s-files' is not a git command. See 'git --help'.
+
+The most similar command is
+        ls-files
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git ls-files
+File1.txt
+File2.txt
+File3.txt
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git commit -m "I added the three files as required to the staging area, I then deleted one file using git rm but restored it using revert, I checked if the files were really restored using git ls-files and found the 3 files there."
+On branch master
+Untracked files:
+        AllMyCommands.txt
+
+nothing added to commit but untracked files present
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git rm "File2.txt"
+rm 'File2.txt'
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git ls-files
+File1.txt
+File3.txt
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git log
+commit a281898b26a7a7b3ae8a17c2c44639960aeb7128 (HEAD -> master)
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 22:45:16 2018 +0200
+
+    Revert "Deleted File2"
+
+    This reverts commit 47b9a135a5e6ef7d71dba6ab59ca2abe3731a231.
+
+    Restored deleted file
+
+commit 47b9a135a5e6ef7d71dba6ab59ca2abe3731a231
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 22:33:12 2018 +0200
+
+    Deleted File2
+
+commit 737891db639fe42b6660b18403eaaf327f5ab51a
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 22:30:40 2018 +0200
+
+    Added the three files to my local repository
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ ^C
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git revert 47b9a135a5e6ef7d71dba6ab59ca2abe3731a231
+error: your local changes would be overwritten by revert.
+hint: commit your changes or stash them to proceed.
+fatal: revert failed
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git log
+commit a281898b26a7a7b3ae8a17c2c44639960aeb7128 (HEAD -> master)
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 22:45:16 2018 +0200
+
+    Revert "Deleted File2"
+
+    This reverts commit 47b9a135a5e6ef7d71dba6ab59ca2abe3731a231.
+
+    Restored deleted file
+
+commit 47b9a135a5e6ef7d71dba6ab59ca2abe3731a231
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 22:33:12 2018 +0200
+
+    Deleted File2
+
+commit 737891db639fe42b6660b18403eaaf327f5ab51a
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 22:30:40 2018 +0200
+
+    Added the three files to my local repository
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git ls-files
+File1.txt
+File3.txt
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git revert a281898b26a7a7b3ae8a17c2c44639960aeb7128
+error: your local changes would be overwritten by revert.
+hint: commit your changes or stash them to proceed.
+fatal: revert failed
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git commit -m "I redeleted the file, because I thought I didn't commit so I am redoing it"
+[master ecb8e8e] I redeleted the file, because I thought I didn't commit so I am redoing it
+ 1 file changed, 10 deletions(-)
+ delete mode 100644 File2.txt
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git revert a281898b26a7a7b3ae8a17c2c44639960aeb7128
+On branch master
+Untracked files:
+        AllMyCommands.txt
+
+nothing added to commit but untracked files present
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git ls-files
+File1.txt
+File3.txt
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git revert 47b9a135a5e6ef7d71dba6ab59ca2abe3731a231
+[master e542170] Revert "Deleted File2"
+ 1 file changed, 10 insertions(+)
+ create mode 100644 File2.txt
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git ls-files
+File1.txt
+File2.txt
+File3.txt
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git log
+commit e5421708ea1c13cbfb75a3d2be9bd4900a0a9f72 (HEAD -> master)
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 23:28:23 2018 +0200
+
+    Revert "Deleted File2"
+
+    This reverts commit 47b9a135a5e6ef7d71dba6ab59ca2abe3731a231.
+
+    Restored the file again and made sure I made the commit
+
+commit ecb8e8e0f302945e85ac65d12f8fd51a63bb53cf
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 23:28:01 2018 +0200
+
+    I redeleted the file, because I thought I didn't commit so I am redoing it
+
+commit a281898b26a7a7b3ae8a17c2c44639960aeb7128
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 22:45:16 2018 +0200
+
+    Revert "Deleted File2"
+
+    This reverts commit 47b9a135a5e6ef7d71dba6ab59ca2abe3731a231.
+
+    Restored deleted file
+
+commit 47b9a135a5e6ef7d71dba6ab59ca2abe3731a231
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 22:33:12 2018 +0200
+
+    Deleted File2
+
+commit 737891db639fe42b6660b18403eaaf327f5ab51a
+Author: DinaElkafrawy <dina.elkafrawy@student.guc.edu.eg>
+Date:   Mon Feb 12 22:30:40 2018 +0200
+
+    Added the three files to my local repository
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git commit -m "Description: I added the three files to my staging area using git add, then deleted a file as required using git rm but restored it by using revert. checked my commits and made sure the files were added"
+On branch master
+Untracked files:
+        AllMyCommands.txt
+
+nothing added to commit but untracked files present
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git remote add origin https://github.com/DinaElkafrawy/Sprint0---Individual.git
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git remote -v
+origin  https://github.com/DinaElkafrawy/Sprint0---Individual.git (fetch)
+origin  https://github.com/DinaElkafrawy/Sprint0---Individual.git (push)
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git push -u origin master
+To https://github.com/DinaElkafrawy/Sprint0---Individual.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/DinaElkafrawy/Sprint0---Individual.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git pull
+warning: no common commits
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/DinaElkafrawy/Sprint0---Individual
+ * [new branch]      master     -> origin/master
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> master
+
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git push -u origin master
+To https://github.com/DinaElkafrawy/Sprint0---Individual.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/DinaElkafrawy/Sprint0---Individual.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git push -u origin master
+To https://github.com/DinaElkafrawy/Sprint0---Individual.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/DinaElkafrawy/Sprint0---Individual.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> master
+
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git remote -v
+origin  https://github.com/DinaElkafrawy/Sprint0---Individual.git (fetch)
+origin  https://github.com/DinaElkafrawy/Sprint0---Individual.git (push)
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git push -u origin master
+To https://github.com/DinaElkafrawy/Sprint0---Individual.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/DinaElkafrawy/Sprint0---Individual.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git fetch
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git rebase master
+Current branch master is up to date.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git push origin master
+To https://github.com/DinaElkafrawy/Sprint0---Individual.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/DinaElkafrawy/Sprint0---Individual.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git fetch
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git rebase master
+Current branch master is up to date.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> master
+
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git push orgin master
+fatal: 'orgin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git push origin master
+To https://github.com/DinaElkafrawy/Sprint0---Individual.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/DinaElkafrawy/Sprint0---Individual.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ ^C
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git push -f origin <branch>
+bash: syntax error near unexpected token `newline'
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git push -f origin master
+Counting objects: 10, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 4.03 KiB | 687.00 KiB/s, done.
+Total 10 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), done.
+To https://github.com/DinaElkafrawy/Sprint0---Individual.git
+ + 54db023...e542170 master -> master (forced update)
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ touch README.md
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git commit -m "created a READ.md using touch"
+On branch master
+Untracked files:
+        AllMyCommands.txt
+        README.md
+
+nothing added to commit but untracked files present
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git branch ReadMe
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git branch
+  ReadMe
+* master
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git commit -m "Created a README.md file using touch and then created a readme branch"
+On branch master
+Untracked files:
+        AllMyCommands.txt
+        README.md
+
+nothing added to commit but untracked files present
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git checkout ReadMe
+Switched to branch 'ReadMe'
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (ReadMe)
+$ git add README.md
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (ReadMe)
+$ git commit -m "Created a README.md file using touch and then created a readme branch, I then switched from the master branch to the readme branch to be able to add the README.md file to that branch"
+[ReadMe 75480c5] Created a README.md file using touch and then created a readme branch, I then switched from the master branch to the readme branch to be able to add the README.md file to that branch
+ 1 file changed, 4 insertions(+)
+ create mode 100644 README.md
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (ReadMe)
+$ ls
+AllMyCommands.txt  File1.txt  File2.txt  File3.txt  README.md
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (ReadMe)
+$ git checkout master
+Switched to branch 'master'
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ ls
+AllMyCommands.txt  File1.txt  File2.txt  File3.txt
+
+Dina Hisham@DESKTOP-CRIC2T8 MINGW64 ~/sprint0 (master)
+$ git merge ReadMe
+Updating e542170..75480c5
+Fast-forward
+ README.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+ create mode 100644 README.md
+
+--------------------
+#List of commands#
+
+git add 
+git commit -m 
+git rm 
+git log 
+git ls-files 
+git status
+git revert
+git reset -- hard
+git checkout -- file
+git push -f
+git fetch 
+git rebase
+git pull
+touch READ.md
+git merge
+ls
